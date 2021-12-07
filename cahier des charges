@@ -1,29 +1,29 @@
-raminagrobis
-EVENT
+Raminagrobis Directeur  s’occupe de Raminagrobis Event
+		
 
-organise des evenements (principalement des lancement public)
+Évènement : remise de diplôme / lancement d’exposition etc…
+ Publiques (majoritairement)
+Campagne marketing pour les lancements : outils pour que les gens s’inscrivent/viennent
+ Récupération de données des inscriptions.
+	Civilité / nom / prénom / E-mail / téléphone / particulier-professionnel 
+Si professionnel  connaître secteur d’activité + nom entreprise
+	Seul ou en groupe (savoir cb de personnes viennent si en groupe)
+D’accord ou non si ses données soient traitées (case à cocher)
+D’accord ou non s’il est d’accord de recevoir des infos (case à cocher)
 
-besoin d'un outils 
-les gens peuvent s'insiscrire
-pour dire qu'il peuvent venir 
-+ récolter des données sur les gens inscrits
-1 formulaire par événement
-1 outils d'administration qui permet de créer un nouveau formulaire pour un nouveau évènement
+2 parties :
+	1er  affiche le/les formulaires pour les utilisateurs, ce qui enregistre les données de l’utilisateur
+	2ème  outil d’administration  permet de créer un nouveau formulaire pour un nouvel événement 
+	Formulaire 	 bandeau image + Titre & description en dessous + formulaire en dessous (tout à centrer)
+			 Pouvoir choisir l’image et la (les) couleur(s) primaire (et secondaires) du formulaire.
+			 Pouvoir régler les secteurs d’activités que j’affiche / qui m’intéresse (les secteurs d’activité sont présents dans une liste mais en fonction des évènements, on n’aura pas besoin de chaque secteur d’activité)  l’utilisateur peut choisir que dans les secteurs d’activité choisi lors du formulaire
+	      Récupération de données : télécharger ou récupérer les données en fonction des événements (donc pouvoir arrêter les formulaires + accéder et/ou télécharger les données  notion de “scoring” en fonction des données remplies (FACULTATIF)
+	 Ajouter / supprimer / modifier des secteurs d’activités
 
-info demandé:
-civilité
-nom
-prenom
-email
-(emailpro)
-particulier ou pro
-si pro [
-savoir le secteur
-nom entreprise (facultatif)
-]
-nombre de personne
-droit rgpb
-newsletter case
-numéro de téléphone mobile et fixe (facultatif)
+PHP – Base de données MySQL – HTML – CSS
 
 
+Dessiner la base de données & l’écran d’administration
+
+Partie utilisateur : HTML – CSS classique
+Partie admin : Bootstrap
