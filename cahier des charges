@@ -1,0 +1,29 @@
+raminagrobis
+EVENT
+
+organise des evenements (principalement des lancement public)
+
+besoin d'un outils 
+les gens peuvent s'insiscrire
+pour dire qu'il peuvent venir 
++ récolter des données sur les gens inscrits
+1 formulaire par événement
+1 outils d'administration qui permet de créer un nouveau formulaire pour un nouveau évènement
+
+info demandé:
+civilité
+nom
+prenom
+email
+(emailpro)
+particulier ou pro
+si pro [
+savoir le secteur
+nom entreprise (facultatif)
+]
+nombre de personne
+droit rgpb
+newsletter case
+numéro de téléphone mobile et fixe (facultatif)
+
+
