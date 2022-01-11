@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 07 déc. 2021 à 14:59
+-- Généré le : mar. 11 jan. 2022 à 13:18
 -- Version du serveur :  5.7.34
 -- Version de PHP : 7.4.21
 
@@ -82,7 +82,22 @@ CREATE TABLE `secteur` (
 --
 
 INSERT INTO `secteur` (`id`, `nom`) VALUES
-(1, 'BTP');
+(2, 'Banque et assurance'),
+(3, 'Bois, papier, carton, imprimerie'),
+(4, 'BTP, matériaux de construction'),
+(5, 'Chimie, parachimie'),
+(6, 'Commerce, négoce, distribution'),
+(7, 'Edition, communication, multimédia'),
+(8, 'Electronique, électricité'),
+(9, 'Industrie pharmaceutique'),
+(11, 'Machines et équipements, automobile'),
+(12, 'Métallurgie, travail du métal'),
+(13, 'Plastique, caoutchouc'),
+(14, 'Service aux entreprises'),
+(15, 'Textile, habillement, chaussure'),
+(21, 'Agroalimentaire'),
+(22, 'Informatique, télécoms'),
+(23, 'Transport, logistique');
 
 -- --------------------------------------------------------
 
@@ -146,7 +161,7 @@ ALTER TABLE `personnes`
 -- AUTO_INCREMENT pour la table `secteur`
 --
 ALTER TABLE `secteur`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Contraintes pour les tables déchargées
