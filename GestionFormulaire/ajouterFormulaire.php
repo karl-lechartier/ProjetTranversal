@@ -18,7 +18,7 @@ include "../header.php";
 
             <p>
                 <label for="img">Image</label>
-                <input type="file" id="img" name="img" class="form-control" required>
+                <input type="file" id="img" name="img" enctype="multipart/form-data" required>
             </p>
 
             <p>

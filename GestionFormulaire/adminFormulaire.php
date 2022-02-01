@@ -30,7 +30,7 @@ include "../header.php";
                 <td><?php echo $l["date_evenement"] ?></td>
                 <td><?php echo $l["date_fin"] ?></td>
                 <td><?php echo $l["nom"] ?></td>
-                <td><a href="modifierFormulaire.php?id=<?php echo $l["id"] ?>">Modifier</a></td>
+                <td><a href="modifierFormulaire.php?id=<?php echo $l[">Modifier</a></td>
             </tr>
             <?php
         }
