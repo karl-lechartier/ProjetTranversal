@@ -13,9 +13,15 @@
     <nav class="navbar">
         <ul>
             <li>
-                <a href="index.php">Accueil</a>
+                <a href="/index.php">Accueil</a>
             </li>
             <li>
+                <form action="login.php">
+                    <input type="text" name="user" id="user" class="login" required>
+                    <br>
+                    <input type="password" name="pass" id="pass" class="login" required>
+                    <input type="submit" value="Login">
+                </form>
                 <a href="adminPanel.php">Accès administrateur</a>
             </li>
         </ul>
