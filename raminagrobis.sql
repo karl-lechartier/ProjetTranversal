@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 01 fév. 2022 à 01:27
+-- Généré le : mar. 01 fév. 2022 à 14:16
 -- Version du serveur :  10.5.13-MariaDB-0ubuntu0.21.10.1
 -- Version de PHP : 8.0.15
 
@@ -42,20 +42,9 @@ CREATE TABLE `formulaires` (
 --
 
 INSERT INTO `formulaires` (`id`, `titre`, `description`, `imgsrc`, `couleur`, `date_evenement`, `date_fin`) VALUES
-(1, 'Bonjour', 'bienvenue sur le journal tous sur les jeux, aujourd\'hui le prix de la XBOX 360 est baissé à cent nonante neuf euros.', 'velo.jpg', '#00FF7C', '2021-12-12', '2022-12-28'),
-(2, 'Aurevoir', 'AAAAAAAAAAAAA le caca lol trop marrant', 'voiture.jpg', '#96ffee', '2022-01-18', '2022-01-17'),
-(39, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'logo-nantes.png', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(40, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'logo-nantes.png', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(41, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(42, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(43, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(44, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(45, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(46, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(47, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(48, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(49, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18'),
-(50, 'cacacacaccaccaaccacacacac', 'pipipiippipipipipiippipiipippipii', 'kekw.jpg', '#b5b5b5', '2022-02-11', '2022-02-18');
+(63, 'Formualire 1', 'Description 1', '63-voiture.jpg', '#6bf5ff', '2022-02-09', '2022-02-25'),
+(64, 'Formulaire 2', 'Description 2', '64-testbis.jpg', '#ffffff', '2022-03-17', '2022-01-06'),
+(65, 'Formualire 3', 'Description 3', '65-240zreverseZoombis.jpg', '#ffbdbd', '2022-02-19', '2022-02-15');
 
 -- --------------------------------------------------------
 
@@ -83,9 +72,7 @@ CREATE TABLE `personnes` (
 --
 
 INSERT INTO `personnes` (`id`, `nom`, `prenom`, `civilite`, `email`, `numportable`, `nbr_personne`, `newsletter`, `pro`, `nom_entreprise`, `id_formulaire`, `id_secteur`) VALUES
-(1, 'pipi', 'caca', 'homme', 'prout@gmail.com', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(4, 'aaaaaaa', 'bbbbbbbbbb', 'femme', 'cccccccc@gmail.com', 643481473, 11, 'true', 'true', 'dddddddd', 1, 23),
-(8, 'zrhfgraezfgdgzera', 'afgeffrez', 'femme', 'aefzfzfzzfrazezgferaezgf@gmail.com', 0, 420, 'true', 'true', 'kcorp', 1, 22);
+(9, 'Nom 1', 'Prénom 1', 'femme', 'mail1@gmail.com', 1, 1, 'true', 'true', 'corp 1', 63, 7);
 
 -- --------------------------------------------------------
 
@@ -136,20 +123,9 @@ CREATE TABLE `secteursparformulaires` (
 --
 
 INSERT INTO `secteursparformulaires` (`id_formulaires`, `id_secteurs`) VALUES
-(1, 2),
-(2, 14),
-(39, 8),
-(40, 8),
-(41, 8),
-(42, 8),
-(43, 8),
-(44, 8),
-(45, 8),
-(46, 8),
-(47, 8),
-(48, 8),
-(49, 8),
-(50, 8);
+(63, 2),
+(64, 3),
+(65, 23);
 
 --
 -- Index pour les tables déchargées
@@ -190,13 +166,13 @@ ALTER TABLE `secteursparformulaires`
 -- AUTO_INCREMENT pour la table `formulaires`
 --
 ALTER TABLE `formulaires`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT pour la table `personnes`
 --
 ALTER TABLE `personnes`
-  MODIFY `id` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `secteur`
