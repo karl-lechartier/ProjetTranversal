@@ -18,7 +18,7 @@ $formulaire = $lignes[0]; //normalement je n'ai récupéré qu'une ligne
 ?>
     <div class="container">
         <h1>Modifier le formulaire</h1>
-        <form action="actions/updateFormulaire.php" method="post">
+        <form action="actions/updateFormulaire.php" method="post" enctype="multipart/form-data">
             <input type="hidden" value="<?php echo $formulaire["id"] ?>" name="id">
             <p>
                 <label for="titre">Titre</label>
@@ -27,12 +27,12 @@ $formulaire = $lignes[0]; //normalement je n'ai récupéré qu'une ligne
 
             <p>
                 <label for="description" class="required">Description</label>
-                <textarea name="description" id="desciption" rows="5" cols="40" class="form-control"><?php echo $formulaire["description"] ?></textarea>
+                <textarea name="description" id="description" rows="5" cols="40" class="form-control"><?php echo $formulaire["description"] ?></textarea>
             </p>
 
             <p>
                 <label for="img">Image</label>
-                <input type="file" id="img" name="img" accept="image/png, image/jpeg, image/jpg, image/svg" value="<?php echo $formulaire["imgsrc"] ?>">
+                <input type="file" id="img" name="img" enctype="multipart/form-data">
             </p>
 
             <p>
@@ -50,25 +50,6 @@ $formulaire = $lignes[0]; //normalement je n'ai récupéré qu'une ligne
                 <input type="date" id="date_f" name="date_f" value="<?php echo $formulaire["date_fin"] ?>" min="2018-01-01" max="2100-12-31">
             </p>
 
-            <?php
-            $requete = $pdo->prepare("select * from secteur");
-            $requete->execute();
-            $lignes = $requete->fetchAll();
-            ?>
-
-            <p>
-                <label for="secteur">Secteur</label>
-                <select name="secteur" id="secteur" form="">
-                    <option value="<?php echo $formulaire["nom"] ?>"><?php echo $formulaire["nom"] ?></option>
-                    <?php
-                    foreach ($lignes as $l) {
-                    ?>
-                    <option value="<?php echo $l["nom"] ?>"><?php echo $l["nom"] ?></option>
-                    <?php
-                    }
-                    ?>
-                </select>
-            </p>
 
             <input type="submit" value="OK" class="">
         </form>
