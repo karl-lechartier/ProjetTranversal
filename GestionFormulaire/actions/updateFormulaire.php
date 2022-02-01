@@ -1,42 +1,61 @@
 <?php
+session_start();
+$token=filter_input(INPUT_POST, "token");
+if($token!=$_SESSION["token"]){
+    die("Erreur de Token");
+}
+
 $id = filter_input(INPUT_POST, "id");
 $titre = filter_input(INPUT_POST, "titre");
 $description = filter_input(INPUT_POST, "description");
-$img = filter_input(INPUT_POST, "img");
+$image = $_FILES["img"];
 $couleur = filter_input(INPUT_POST, "couleur");
 $date_e = filter_input(INPUT_POST, "date_e");
 $date_f = filter_input(INPUT_POST, "date_f");
-$secteur = filter_input(INPUT_POST, "secteur");
 
-echo $id;
-echo "<br>";
-echo $titre;
-echo "<br>";
-echo $description;
-echo "<br>";
-echo $img;
-echo "<br>";
-echo $couleur;
-echo "<br>";
-echo $date_e;
-echo "<br>";
-echo $date_f;
-echo "<br>";
-echo $secteur;
-echo "<br>";
-?>
-<br>
-<br>
-//je vais chercher la config
+$nomIMG = "";
+
+
+$nomIMG = $id."-".basename($image["name"]);
+//echo $nomIMG;
+
 include_once "../../config.php";
-//Faire une connexion à la base de données
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO,
-Config::UTILISATEUR, Config::MOTDEPASSE);
-//Préparer la requête --> FAIRE ATTENTION avec la concaténation !
-$requete = $pdo->prepare("update secteur set nom=:nom where id=:id");
-$requete->bindParam(":nom", $nom);
+    Config::UTILISATEUR, Config::MOTDEPASSE);
+
+if ($nomIMG == $id."-") {
+$requete = $pdo->prepare("UPDATE formulaires SET titre = :titre, description = :description, couleur = :couleur, date_evenement = :date_e, date_fin = :date_f WHERE formulaires.id = :id");
+$requete->bindParam(":titre", $titre);
+$requete->bindParam(":description", $description);
+$requete->bindParam(":couleur", $couleur);
+$requete->bindParam(":date_e", $date_e);
+$requete->bindParam(":date_f", $date_f);
 $requete->bindParam(":id", $id);
-
 $requete->execute();
+} else {
+    $r = $pdo->prepare("select * from formulaires where id = :id");
+    $r->bindParam(":id", $id);
+    $r->execute();
+    $l = $r->fetchAll();
+    $formulaire = $l[0];
+    echo $formulaire['imgsrc'];
+    unlink('../../IMG/'.$formulaire['imgsrc']);
 
-header("location: ../adminSecteur.php");
+    move_uploaded_file($image["tmp_name"], "../../IMG/$nomIMG");
+
+    $requete = $pdo->prepare("UPDATE formulaires SET titre = :titre, description = :description, imgsrc=:imgsrc,couleur = :couleur, date_evenement = :date_e, date_fin = :date_f WHERE formulaires.id = :id");
+    $requete->bindParam(":titre", $titre);
+    $requete->bindParam(":description", $description);
+    $requete->bindParam(":imgsrc", $nomIMG);
+    $requete->bindParam(":couleur", $couleur);
+    $requete->bindParam(":date_e", $date_e);
+    $requete->bindParam(":date_f", $date_f);
+    $requete->bindParam(":id", $id);
+    $requete->execute();
+}
+
+
+
+
+header("location: ../adminFormulaire.php");
+?>

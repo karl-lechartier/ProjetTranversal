@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 20 jan. 2022 à 16:03
+-- Généré le : mar. 01 fév. 2022 à 14:35
 -- Version du serveur :  10.5.13-MariaDB-0ubuntu0.21.10.1
--- Version de PHP : 8.0.14
+-- Version de PHP : 8.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `formulaires` (
   `titre` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `imgsrc` varchar(255) NOT NULL,
-  `couleur` varchar(6) NOT NULL,
+  `couleur` varchar(7) NOT NULL,
   `date_evenement` date NOT NULL,
   `date_fin` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -42,8 +42,7 @@ CREATE TABLE `formulaires` (
 --
 
 INSERT INTO `formulaires` (`id`, `titre`, `description`, `imgsrc`, `couleur`, `date_evenement`, `date_fin`) VALUES
-(1, 'Bonjour', 'bienvenue sur le journal tous sur les jeux, aujourd\'hui le prix de la XBOX 360 est baissé à cent nonante neuf euros.', 'velo.png', 'E4E4E4', '2021-12-12', '2022-12-28'),
-(2, 'Aurevoir', 'AAAAAAAAAAAAA le caca lol trop marrant', 'voiture.jpg', '96ffee', '2022-01-18', '2022-01-17');
+(66, 'Formulaire 1', 'Description 1', '66-voiture.jpg', '#4dbbff', '2022-02-09', '2022-02-07');
 
 -- --------------------------------------------------------
 
@@ -52,19 +51,18 @@ INSERT INTO `formulaires` (`id`, `titre`, `description`, `imgsrc`, `couleur`, `d
 --
 
 CREATE TABLE `personnes` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(100) UNSIGNED NOT NULL,
   `nom` varchar(100) NOT NULL,
   `prenom` varchar(100) NOT NULL,
   `civilite` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `numfixe` int(10) DEFAULT NULL,
-  `numportable` int(10) DEFAULT NULL,
+  `numportable` int(100) DEFAULT NULL,
   `nbr_personne` int(100) NOT NULL DEFAULT 1,
-  `newsletter` tinyint(1) NOT NULL,
-  `pro` tinyint(1) NOT NULL,
+  `newsletter` text DEFAULT NULL,
+  `pro` text DEFAULT NULL,
   `nom_entreprise` varchar(100) DEFAULT NULL,
-  `id_formulaire` int(11) UNSIGNED NOT NULL,
-  `id_secteur` int(10) UNSIGNED DEFAULT NULL
+  `id_formulaire` int(11) UNSIGNED DEFAULT NULL,
+  `id_secteur` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -116,8 +114,7 @@ CREATE TABLE `secteursparformulaires` (
 --
 
 INSERT INTO `secteursparformulaires` (`id_formulaires`, `id_secteurs`) VALUES
-(1, 2),
-(2, 14);
+(66, 4);
 
 --
 -- Index pour les tables déchargées
@@ -158,19 +155,19 @@ ALTER TABLE `secteursparformulaires`
 -- AUTO_INCREMENT pour la table `formulaires`
 --
 ALTER TABLE `formulaires`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT pour la table `personnes`
 --
 ALTER TABLE `personnes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `secteur`
 --
 ALTER TABLE `secteur`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Contraintes pour les tables déchargées

@@ -4,9 +4,9 @@ include_once "../../config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO,
     Config::UTILISATEUR, Config::MOTDEPASSE);
 
-$requete = $pdo->prepare("DELETE FROM secteur where id=:id");
+$requete = $pdo->prepare("DELETE FROM formulaires where id=:id");
 $requete->bindParam(":id", $id);
 $requete->execute();
 
-header("location: ../adminSecteur.php");
+header("location: ../adminFormulaire.php");
 ?>

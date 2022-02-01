@@ -6,15 +6,11 @@ include "../header.php";
     <a href="ajouterSecteur.php">Ajouter un secteur</a>
     <h2>Liste des secteurs</h2>
     <?php
-    //je vais chercher la config
     include_once "../config.php";
-    //Faire une connexion à la base de données
     $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
-    //Préparer la requête
+
     $requete = $pdo->prepare("select * from secteur");
-    //Executer la requête
     $requete->execute();
-    //récupérer le résultat
     $lignes = $requete->fetchAll();
     ?>
     <table class="table table-striped">
