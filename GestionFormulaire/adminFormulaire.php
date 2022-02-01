@@ -4,6 +4,7 @@ include "../header.php";
 ?>
 
 <div class="container">
+    <a href="ajouterFormulaire.php">Ajouter un formulaire</a>
     <h2>Liste des formulaires</h2>
     <?php
     //je vais chercher la config
@@ -24,7 +25,7 @@ include "../header.php";
             <tr>
                 <td><?php echo $l["titre"] ?></td>
                 <td><?php echo $l["description"] ?></td>
-                <td style="background-color: #<?php echo $l["couleur"] ?>">Couleur</td>
+                <td style="background-color: <?php echo $l["couleur"] ?>">Couleur</td>
                 <td><img src="../IMG/<?php echo $l["imgsrc"]?>" alt="" height="125" width="auto"></td>
                 <td><?php echo $l["date_evenement"] ?></td>
                 <td><?php echo $l["date_fin"] ?></td>

@@ -1,4 +1,10 @@
 <?php
+session_start();
+$token=filter_input(INPUT_POST, "token");
+if($token!=$_SESSION["token"]){
+    die("Erreur de Token");
+}
+
 $nom = filter_input(INPUT_POST, "nom");
 
 //je vais chercher la config

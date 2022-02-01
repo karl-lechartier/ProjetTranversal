@@ -32,7 +32,7 @@ $formulaire = $lignes[0]; //normalement je n'ai récupéré qu'une ligne
 
             <p>
                 <label for="img">Image</label>
-                <input type="file" id="img" name="img" accept="image/png, image/jpeg, image/jpg, image/svg" >
+                <input type="file" id="img" name="img" accept="image/png, image/jpeg, image/jpg, image/svg" value="<?php echo $formulaire["imgsrc"] ?>">
             </p>
 
             <p>

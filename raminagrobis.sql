@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4deb2ubuntu5
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : jeu. 20 jan. 2022 à 16:03
--- Version du serveur :  10.5.13-MariaDB-0ubuntu0.21.10.1
--- Version de PHP : 8.0.14
+-- Hôte : localhost:8889
+-- Généré le : mar. 11 jan. 2022 à 13:18
+-- Version du serveur :  5.7.34
+-- Version de PHP : 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,8 +42,7 @@ CREATE TABLE `formulaires` (
 --
 
 INSERT INTO `formulaires` (`id`, `titre`, `description`, `imgsrc`, `couleur`, `date_evenement`, `date_fin`) VALUES
-(1, 'Bonjour', 'bienvenue sur le journal tous sur les jeux, aujourd\'hui le prix de la XBOX 360 est baissé à cent nonante neuf euros.', 'velo.png', 'E4E4E4', '2021-12-12', '2022-12-28'),
-(2, 'Aurevoir', 'AAAAAAAAAAAAA le caca lol trop marrant', 'voiture.jpg', '96ffee', '2022-01-18', '2022-01-17');
+(1, 'Bonjour', 'bienvenue sur le journal tous sur les jeux, aujourd\'hui le prix de la XBOX 360 est baissé à cent nonante neuf euros.', 'img.png', 'E4E4E4', '2021-12-12', '2022-12-12');
 
 -- --------------------------------------------------------
 
@@ -59,7 +58,7 @@ CREATE TABLE `personnes` (
   `email` varchar(100) NOT NULL,
   `numfixe` int(10) DEFAULT NULL,
   `numportable` int(10) DEFAULT NULL,
-  `nbr_personne` int(100) NOT NULL DEFAULT 1,
+  `nbr_personne` int(100) NOT NULL DEFAULT '1',
   `newsletter` tinyint(1) NOT NULL,
   `pro` tinyint(1) NOT NULL,
   `nom_entreprise` varchar(100) DEFAULT NULL,
@@ -112,14 +111,6 @@ CREATE TABLE `secteursparformulaires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `secteursparformulaires`
---
-
-INSERT INTO `secteursparformulaires` (`id_formulaires`, `id_secteurs`) VALUES
-(1, 2),
-(2, 14);
-
---
 -- Index pour les tables déchargées
 --
 
@@ -158,7 +149,7 @@ ALTER TABLE `secteursparformulaires`
 -- AUTO_INCREMENT pour la table `formulaires`
 --
 ALTER TABLE `formulaires`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `personnes`
@@ -170,7 +161,7 @@ ALTER TABLE `personnes`
 -- AUTO_INCREMENT pour la table `secteur`
 --
 ALTER TABLE `secteur`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Contraintes pour les tables déchargées

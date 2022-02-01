@@ -1,4 +1,8 @@
 <?php
+session_start();
+$token = uniqid();
+$_SESSION["token"] = $token;
+
 $title = 'Raminagrobis - Modifer Secteur';
 include "../header.php";
 //TODO il faut gérer un token de sécurité
@@ -19,6 +23,7 @@ $secteur = $lignes[0]; //normalement je n'ai récupéré qu'une ligne
     <div class="container">
         <h1>Modifier un secteur</h1>
         <form action="actions/updateSecteur.php" method="post">
+            <input type="hidden" name="token" value="<?php echo $token ?>">
             <input type="hidden" value="<?php echo $secteur["id"] ?>" name="id">
             <div class="">
                 <label for="titre">Nom du secteur</label>
