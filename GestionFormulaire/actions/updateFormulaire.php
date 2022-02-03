@@ -1,4 +1,9 @@
 <?php
+session_start();
+$token=filter_input(INPUT_POST, "token");
+if($token!=$_SESSION["token"]){
+    die("Erreur de Token");
+}
 
 $id = filter_input(INPUT_POST, "id");
 $titre = filter_input(INPUT_POST, "titre");
@@ -9,10 +14,7 @@ $date_e = filter_input(INPUT_POST, "date_e");
 $date_f = filter_input(INPUT_POST, "date_f");
 
 $nomIMG = "";
-
-
 $nomIMG = $id."-".basename($image["name"]);
-//echo $nomIMG;
 
 include_once "../../config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO,
@@ -48,9 +50,6 @@ $requete->execute();
     $requete->bindParam(":id", $id);
     $requete->execute();
 }
-
-
-
 
 header("location: ../adminFormulaire.php");
 ?>
