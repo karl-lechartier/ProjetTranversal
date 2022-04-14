@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 01 fév. 2022 à 14:35
+-- Généré le : mar. 01 fév. 2022 à 14:16
 -- Version du serveur :  10.5.13-MariaDB-0ubuntu0.21.10.1
 -- Version de PHP : 8.0.15
 
@@ -42,7 +42,9 @@ CREATE TABLE `formulaires` (
 --
 
 INSERT INTO `formulaires` (`id`, `titre`, `description`, `imgsrc`, `couleur`, `date_evenement`, `date_fin`) VALUES
-(66, 'Formulaire 1', 'Description 1', '66-voiture.jpg', '#4dbbff', '2022-02-09', '2022-02-07');
+(63, 'Formualire 1', 'Description 1', '63-voiture.jpg', '#6bf5ff', '2022-02-09', '2022-02-25'),
+(64, 'Formulaire 2', 'Description 2', '64-testbis.jpg', '#ffffff', '2022-03-17', '2022-01-06'),
+(65, 'Formualire 3', 'Description 3', '65-240zreverseZoombis.jpg', '#ffbdbd', '2022-02-19', '2022-02-15');
 
 -- --------------------------------------------------------
 
@@ -64,6 +66,13 @@ CREATE TABLE `personnes` (
   `id_formulaire` int(11) UNSIGNED DEFAULT NULL,
   `id_secteur` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `personnes`
+--
+
+INSERT INTO `personnes` (`id`, `nom`, `prenom`, `civilite`, `email`, `numportable`, `nbr_personne`, `newsletter`, `pro`, `nom_entreprise`, `id_formulaire`, `id_secteur`) VALUES
+(9, 'Nom 1', 'Prénom 1', 'femme', 'mail1@gmail.com', 1, 1, 'true', 'true', 'corp 1', 63, 7);
 
 -- --------------------------------------------------------
 
@@ -114,7 +123,9 @@ CREATE TABLE `secteursparformulaires` (
 --
 
 INSERT INTO `secteursparformulaires` (`id_formulaires`, `id_secteurs`) VALUES
-(66, 4);
+(63, 2),
+(64, 3),
+(65, 23);
 
 --
 -- Index pour les tables déchargées
@@ -155,7 +166,7 @@ ALTER TABLE `secteursparformulaires`
 -- AUTO_INCREMENT pour la table `formulaires`
 --
 ALTER TABLE `formulaires`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT pour la table `personnes`

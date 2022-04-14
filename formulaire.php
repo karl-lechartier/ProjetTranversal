@@ -4,28 +4,22 @@ $token = uniqid();
 $_SESSION["token"] = $token;
 
 $t = filter_input(INPUT_GET, "t");
+$id = filter_input(INPUT_GET, "id");
 
 $title = $t;
 include "header.php";
-//je vais chercher la config
 include_once "config.php";
-//Faire une connexion à la base de données
+
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
-//Préparer la requête
-$requete = $pdo->prepare("select formulaires.*,secteur.nom,secteur.id as 'sid' from formulaires join secteursparformulaires on formulaires.id = secteursparformulaires.id_formulaires join secteur on secteursparformulaires.id_secteurs = secteur.id where formulaires.titre=:titre");
-$requete->bindParam(":titre", $t);
+$requete = $pdo->prepare("select formulaires.*,secteur.nom from formulaires join secteursparformulaires on formulaires.id = secteursparformulaires.id_formulaires join secteur on secteursparformulaires.id_secteurs = secteur.id where formulaires.id=:id");
+$requete->bindParam(":id", $id);
 $requete->execute();
 $lignes = $requete->fetchAll();
 $formulaire = $lignes[0];
 ?>
 <style>
     body {
-        background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0)),url("<?php echo 'IMG/'.$formulaire['imgsrc']?>");
-        background-repeat: no-repeat;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)),url("<?php echo 'IMG/'.$formulaire['imgsrc']?>");
     }
 </style>
 <main>
@@ -34,12 +28,12 @@ $formulaire = $lignes[0];
     <div class="flex-child">
         <h1><?php echo $formulaire['titre'] ?></h1>
         <p><?php echo $formulaire['description'] ?></p>
-        <p><?php echo $formulaire['date_evenement'] ?></p>
-        <p><?php echo $formulaire['description'] ?></p>
+        <p>Date de l'évènement : <br><?php echo $formulaire['date_evenement'] ?></p>
+        <p>Fin d'inscription : <br><?php echo $formulaire['date_fin'] ?></p>
     </div>
 
     <div class="flex-child">
-        <form action="insertPersonne.php" method="POST">
+        <form action="insertPersonne.php" method="POST" class="formUser" style="background-color: <?php echo $formulaire['couleur'] ?>">
             <input type="hidden" name="token" value="<?php echo $token ?>">
             <input type="hidden" value="<?php echo $formulaire["id"] ?>" name="id">
             <p>
@@ -87,7 +81,7 @@ $formulaire = $lignes[0];
             </p>
             <p>
                 <label for="nbr">Nombres de personne(s)</label>
-                <input type="number" id="nbr" name="nbr" min="1" value="1">
+                <input type="number" id="nbr" name="nbr" min="1" value="1" class="form-control">
             </p>
             <p>
                 <input type="checkbox" id="pro" name="pro" value="true">
@@ -109,8 +103,8 @@ $formulaire = $lignes[0];
                 $lignes = $requete->fetchAll();
                 ?>
                 <label for="secteur-select">Choisissez un secteur</label>
-                <select name="secteur" id="secteur-select">
-                    <option value="">--Choisissez un secteur--</option>
+                <select name="secteur" id="secteur-select" class="form-control">
+                    <option value="1">--Choisissez un secteur--</option>
                     <?php foreach ($lignes as $l) {?>
                     <option value="<?php echo $l['id'] ?>"><?php echo $l['nom'] ?></option>
                     <?php } ?>
@@ -120,12 +114,13 @@ $formulaire = $lignes[0];
                 <input type="checkbox" id="news" name="news" value="true">
                 <label for="news">S'abonner à la newsletter ?</label>
             </p>
-            <!--<input type="submit" value="Envoyer">-->
-            <button type="submit" class="btn">S'inscrire</button>
+            <input type="submit" class="btn" value="S'inscrire" style="color: <?php echo $formulaire['couleur'] ?>;background-color: white">
+
         </form>
     </div>
 </div>
 </main>
-<?php
-include "footer.php"
-?>
+<footer>
+</footer>
+</body>
+</html>

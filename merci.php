@@ -8,6 +8,7 @@ include "header.php";
         <p id="b">Vous allez recevoir un email</p>
     </div>
 </main>
-<?php
-include "footer.php"
-?>
+<footer>
+</footer>
+</body>
+</html>
